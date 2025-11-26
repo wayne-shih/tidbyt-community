@@ -482,8 +482,9 @@ def getWindSpeed(decodedMetar):
         windSpeedText = "Calm"
 
     # Set wind gust variable
-    if decodedMetar["wgst"] != None:
-        windGust = int(decodedMetar["wgst"])
+    windGust = decodedMetar.get("wgst")
+    if windGust != None:
+        windGust = int(windGust)
         windSpeedText = str(windSpeed) + "-" + str(windGust) + "kts"
 
     # Wind speed color determinations
